@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <meta name="theme-color" content="#0b0f1a" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg">
+    <div class="grain"></div>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="brandDot"></span>
+      <span class="brandText">Portfolio</span>
+    </a>
+
+    <nav class="nav">
+      <a class="navLink" href="#about">About</a>
+      <a class="navLink" href="#work">Past work</a>
+      <a class="navLink" href="#contact">Contact</a>
+    </nav>
+
+    <button class="cta" id="scrollCta" type="button">
+      <span>View work</span>
+      <span class="ctaIcon">→</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="heroInner">
+        <div class="kicker">
+          <span class="pill">Available for projects</span>
+          <span class="dot"></span>
+          <span class="muted">Fast • Clean • Modern</span>
+        </div>
+
+        <h1 class="title">
+          <span class="titleLine">Your Name</span>
+          <span class="titleLine titleGrad">Developer • Builder • Creator</span>
+        </h1>
+
+        <p class="subtitle">
+          Replace this line with your 1–2 sentence summary. Keep it punchy. Example: “I build clean, fast, and satisfying user experiences with modern web + game dev.”
+        </p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="#contact">
+            <span>Contact me</span>
+            <span class="btnIcon">↗</span>
+          </a>
+          <button class="btn ghost" id="copyEmail" type="button" data-copy="your@email.com">
+            <span id="copyEmailText">Copy email</span>
+            <span class="btnIcon">⎘</span>
+          </button>
+        </div>
+
+        <div class="stats">
+          <div class="statCard">
+            <div class="statTop">
+              <span class="statLabel">Focus</span>
+              <span class="statChip">Portfolio</span>
+            </div>
+            <div class="statValue">Clean UI</div>
+            <div class="statHint">Smooth animations • gradients • polish</div>
+          </div>
+
+          <div class="statCard">
+            <div class="statTop">
+              <span class="statLabel">Work</span>
+              <span class="statChip">Projects</span>
+            </div>
+            <div class="statValue">Past builds</div>
+            <div class="statHint">Showcase scripts + visuals</div>
+          </div>
+
+          <div class="statCard">
+            <div class="statTop">
+              <span class="statLabel">Contact</span>
+              <span class="statChip">One click</span>
+            </div>
+            <div class="statValue">Copy</div>
+            <div class="statHint">Discord • Email • Links</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroSide">
+        <div class="glassCard">
+          <div class="glassHeader">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="glassTitle">
+              <div class="name">Your Name</div>
+              <div class="role">Your role (e.g., Roblox Developer)</div>
+            </div>
+          </div>
+          <div class="glassBody">
+            <div class="miniRow">
+              <span class="miniKey">Strengths</span>
+              <span class="miniVal">UI polish • systems • scripting</span>
+            </div>
+            <div class="miniRow">
+              <span class="miniKey">Tools</span>
+              <span class="miniVal">HTML • CSS • JS</span>
+            </div>
+            <div class="miniRow">
+              <span class="miniKey">Signature</span>
+              <span class="miniVal">Satisfying animations</span>
+            </div>
+          </div>
+          <div class="glassFooter">
+            <button class="chipBtn" id="scrollAbout" type="button">About me</button>
+            <button class="chipBtn" id="scrollWork" type="button">Past work</button>
+            <button class="chipBtn" id="scrollContact" type="button">Contact</button>
+          </div>
+        </div>
+
+        <div class="orbit" aria-hidden="true">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="spark s1"></div>
+          <div class="spark s2"></div>
+          <div class="spark s3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="sectionHead">
+        <h2 class="h2">About me</h2>
+        <p class="p">
+          Paste your real bio here. Keep it structured: who you are, what you build, what you’re good at, what you want to work on.
+        </p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelTop">
+            <div class="badge">Experience</div>
+            <div class="panelTitle">What I do</div>
+          </div>
+          <div class="panelBody">
+            <ul class="bullets">
+              <li>Replace this with a strong point (example: “Build clean UI with smooth motion.”)</li>
+              <li>Replace this with a strong point (example: “Ship complete systems end-to-end.”)</li>
+              <li>Replace this with a strong point (example: “Polished interactions and satisfying details.”)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panelTop">
+            <div class="badge">Skills</div>
+            <div class="panelTitle">Stack</div>
+          </div>
+          <div class="panelBody tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Animation</span>
+            <span class="tag">Scripting</span>
+          </div>
+          <div class="panelBottom">
+            <div class="hint">You’ll replace these tags later with your real skills.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="sectionHead">
+        <h2 class="h2">Past work</h2>
+        <p class="p">
+          Add your projects here. Each card can link to a GitHub repo, video, or live demo.
+        </p>
+      </div>
+
+      <div class="workGrid" id="workGrid">
+        <a class="workCard" href="#" target="_blank" rel="noreferrer">
+          <div class="workTop">
+            <div class="workIcon">◆</div>
+            <div class="workMeta">
+              <div class="workTitle">Project Name</div>
+              <div class="workSub">Short one-line description</div>
+            </div>
+          </div>
+          <div class="workBody">
+            <div class="workPreview">
+              <div class="scan"></div>
+              <div class="previewText">Preview</div>
+            </div>
+          </div>
+          <div class="workFoot">
+            <span class="workTag">UI</span>
+            <span class="workTag">Systems</span>
+            <span class="workTag">Polish</span>
+            <span class="workArrow">↗</span>
+          </div>
+        </a>
+
+        <a class="workCard" href="#" target="_blank" rel="noreferrer">
+          <div class="workTop">
+            <div class="workIcon">◇</div>
+            <div class="workMeta">
+              <div class="workTitle">Project Name</div>
+              <div class="workSub">Short one-line description</div>
+            </div>
+          </div>
+          <div class="workBody">
+            <div class="workPreview">
+              <div class="scan"></div>
+              <div class="previewText">Preview</div>
+            </div>
+          </div>
+          <div class="workFoot">
+            <span class="workTag">Scripts</span>
+            <span class="workTag">Game</span>
+            <span class="workTag">Logic</span>
+            <span class="workArrow">↗</span>
+          </div>
+        </a>
+
+        <a class="workCard" href="#" target="_blank" rel="noreferrer">
+          <div class="workTop">
+            <div class="workIcon">⬢</div>
+            <div class="workMeta">
+              <div class="workTitle">Project Name</div>
+              <div class="workSub">Short one-line description</div>
+            </div>
+          </div>
+          <div class="workBody">
+            <div class="workPreview">
+              <div class="scan"></div>
+              <div class="previewText">Preview</div>
+            </div>
+          </div>
+          <div class="workFoot">
+            <span class="workTag">Web</span>
+            <span class="workTag">Design</span>
+            <span class="workTag">Motion</span>
+            <span class="workArrow">↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="sectionHead">
+        <h2 class="h2">Contact information</h2>
+        <p class="p">
+          Clicking will copy your info. Replace the placeholders with your real Discord + email.
+        </p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel contactPanel">
+          <div class="panelTop">
+            <div class="badge">Discord</div>
+            <div class="panelTitle">Tap to copy</div>
+          </div>
+
+          <button class="contactBtn" type="button" data-copy="your_discord_username" id="copyDiscord">
+            <span class="contactLeft">
+              <span class="contactIcon">⌁</span>
+              <span class="contactText">
+                <span class="contactKey">Discord</span>
+                <span class="contactVal" id="discordVal">your_discord_username</span>
+              </span>
+            </span>
+            <span class="contactRight" id="discordHint">Copy</span>
+          </button>
+        </div>
+
+        <div class="panel contactPanel">
+          <div class="panelTop">
+            <div class="badge">Email</div>
+            <div class="panelTitle">Tap to copy / open</div>
+          </div>
+
+          <div class="contactRow">
+            <button class="contactBtn" type="button" data-copy="your@email.com" id="copyEmail2">
+              <span class="contactLeft">
+                <span class="contactIcon">@</span>
+                <span class="contactText">
+                  <span class="contactKey">Email</span>
+                  <span class="contactVal" id="emailVal">your@email.com</span>
+                </span>
+              </span>
+              <span class="contactRight" id="emailHint">Copy</span>
+            </button>
+
+            <a class="contactLink" id="mailtoLink" href="mailto:your@email.com">Open</a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footerLine"></div>
+        <div class="footerText">© <span id="year"></span> Your Name</div>
+      </footer>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true">
+    <div class="toastInner" id="toastInner">Copied</div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
