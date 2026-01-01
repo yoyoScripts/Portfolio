@@ -1,84 +1,77 @@
-const $ = (s, r=document) => r.querySelector(s)
-const $$ = (s, r=document) => Array.from(r.querySelectorAll(s))
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
 
-const toast = $("#toast")
-const toastInner = $("#toastInner")
+// Toast Notification Logic
+const toast = $("#toast");
+let toastTimer;
 
-const showToast = (text) => {
-  toastInner.textContent = text
-  toast.classList.add("show")
-  clearTimeout(showToast._t)
-  showToast._t = setTimeout(() => toast.classList.remove("show"), 1400)
-}
+const showToast = (message) => {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+};
 
-const copyToClipboard = async (value) => {
-  try{
-    await navigator.clipboard.writeText(value)
-    showToast("Copied")
-  }catch{
-    const ta = document.createElement("textarea")
-    ta.value = value
-    ta.setAttribute("readonly","")
-    ta.style.position="absolute"
-    ta.style.left="-9999px"
-    document.body.appendChild(ta)
-    ta.select()
-    document.execCommand("copy")
-    ta.remove()
-    showToast("Copied")
+// Clipboard Logic
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast("Copied to clipboard!");
+  } catch (err) {
+    console.error("Failed to copy", err);
+    showToast("Failed to copy");
   }
-}
+};
 
-const bindCopy = (btn, hintEl) => {
-  if(!btn) return
-  const val = btn.getAttribute("data-copy") || ""
-  btn.addEventListener("click", async () => {
-    await copyToClipboard(val)
-    if(hintEl){
-      hintEl.textContent = "Copied"
-      clearTimeout(hintEl._t)
-      hintEl._t = setTimeout(() => hintEl.textContent = "Copy", 900)
+// Bind Copy Buttons
+const bindCopy = (selector) => {
+  const el = $(selector);
+  if (el) {
+    el.addEventListener("click", () => {
+      const text = el.getAttribute("data-copy");
+      copyToClipboard(text);
+    });
+  }
+};
+
+bindCopy("#copyEmail");
+bindCopy("#copyEmail2");
+bindCopy("#copyDiscord");
+
+// Smooth Scrolling
+$("#scrollCta")?.addEventListener("click", () => {
+  $("#work").scrollIntoView({ behavior: "smooth" });
+});
+
+// Dynamic Year
+$("#year").textContent = new Date().getFullYear();
+
+// Simple Reveal Animation on Scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
     }
-  })
-}
+  });
+}, { threshold: 0.1 });
 
-bindCopy($("#copyDiscord"), $("#discordHint"))
-bindCopy($("#copyEmail2"), $("#emailHint"))
-bindCopy($("#copyEmail"))
+// Add fade class to major sections
+$$("section").forEach((sec) => {
+  sec.style.opacity = "0";
+  sec.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  sec.style.transform = "translateY(20px)";
+  observer.observe(sec);
+});
 
-$("#scrollCta")?.addEventListener("click", () => $("#work")?.scrollIntoView({behavior:"smooth"}))
-$("#scrollAbout")?.addEventListener("click", () => $("#about")?.scrollIntoView({behavior:"smooth"}))
-$("#scrollWork")?.addEventListener("click", () => $("#work")?.scrollIntoView({behavior:"smooth"}))
-$("#scrollContact")?.addEventListener("click", () => $("#contact")?.scrollIntoView({behavior:"smooth"}))
-
-$("#year").textContent = String(new Date().getFullYear())
-
-const revealTargets = [
-  ...$$(".heroInner"),
-  ...$$(".heroSide"),
-  ...$$(".sectionHead"),
-  ...$$(".panel"),
-  ...$$(".workCard"),
-  ...$$(".footer")
-].filter(Boolean)
-
-revealTargets.forEach(el => el.classList.add("reveal"))
-
-const io = new IntersectionObserver((entries) => {
-  for(const e of entries){
-    if(e.isIntersecting) e.target.classList.add("in")
-  }
-},{threshold:0.12})
-
-revealTargets.forEach(el => io.observe(el))
-
-const syncContactLinks = () => {
-  const email = $("#emailVal")?.textContent?.trim() || ""
-  const mailto = $("#mailtoLink")
-  const topCopy = $("#copyEmail")
-  const copy2 = $("#copyEmail2")
-  if(mailto && email) mailto.setAttribute("href", `mailto:${email}`)
-  if(topCopy && email) topCopy.setAttribute("data-copy", email)
-  if(copy2 && email) copy2.setAttribute("data-copy", email)
-}
-syncContactLinks()
+// Animation Class Logic
+document.addEventListener("scroll", () => {
+  $$("section").forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) {
+      sec.style.opacity = "1";
+      sec.style.transform = "translateY(0)";
+    }
+  });
+});
